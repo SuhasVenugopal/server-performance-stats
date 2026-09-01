@@ -11,3 +11,6 @@ echo "CPU Usage: ${cpu_usage}%"
 
 echo "============== Memory Usage ================"
 free -m | awk 'NR==2 {printf "Used: %s MB / Total: %s MB (%.1f%%)\nFree: %s MB\n", $3, $2, $3*100/$2, $4}'
+
+echo "============== Disk Usage =================="
+df -h / | awk 'NR==2 {printf "Used: %s / Total: %s (%s used)\nFree: %s\n", $3, $2, $5, $4}'
