@@ -14,3 +14,9 @@ free -m | awk 'NR==2 {printf "Used: %s MB / Total: %s MB (%.1f%%)\nFree: %s MB\n
 
 echo "============== Disk Usage =================="
 df -h / | awk 'NR==2 {printf "Used: %s / Total: %s (%s used)\nFree: %s\n", $3, $2, $5, $4}'
+
+echo "======= Top 5 Processes by CPU Usage ======="
+ps aux --sort=%cpu | head -6
+
+echo "======= Top 5 Processes by Mem Usage ======="
+ps aux --sort=%mem | head -6
